@@ -1,0 +1,132 @@
+$primary-color: #9356DC;
+$secondary-color: #FF79DA;
+$tertiary-color: #99E2D0;
+$font-weight:(
+    "regular": 400,
+    "medium": 500,
+    "bold": 700
+);
+$mobile: 800px;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+@mixin flexCenter($direction){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin mobile {
+  @media (max-width: $mobile){
+  }
+}
+
+.header {
+    display: flex;
+    height: 70px;
+    justify-content: center;
+    margin: 40px;
+  }
+
+@include mobile{
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  float: left;
+  width: auto;
+}
+
+.logo img{
+  height: 60px;
+  margin: 0px 40px;
+}
+
+.fa-map-marker-alt {
+  background-color: grey;
+  border-radius: 12px 0 0 12px;
+  font-size: 22px;
+  padding: 1px;
+  text-align: center;
+  width: auto;
+  padding: 10px;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  text-align: center;
+}
+
+.search-box {
+  border: solid grey;
+  font-weight: 700;
+  font-size: 12px;
+  width: 200px;
+  padding: 12px;
+}
+
+.restaurant-card{
+  background-color: white;
+  border-radius: 20px;
+  border: solid #F2F2F2 10px;
+  box-shadow: 1px 1px 1px 1px rgba(192,192,192);
+  width: 300px;
+}
+
+.restaurant-card:hover {
+  box-shadow: 0 4px 2px 0 rgba(192,192,192);
+}
+
+.restaurant-card img {
+  border-radius: 20px 20px 0 0;
+  height: 20px;
+  width: 20%;
+  object-fit: cover;
+  position: relative;
+}
+
+.restaurant-card-text {
+  border-radius: 0 0 1px 2px;
+  line-height: 6px;
+  padding: 2px;
+}
+
+.restaurant-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-evenly;
+}   
+
+.restaurant-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.restaurant-header {
+  margin-left: 10px;
+}
+
+.restaurant-background {
+  background-color: #F2F2F2;
+  border-radius: 25px;
+  padding: 10px;
+  width: 55%;
+}   
+
+.places {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  gap: 20px;
+  justify-content: center;
+}
