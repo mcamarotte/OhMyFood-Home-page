@@ -1,108 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+
 $primary-color: #9356DC;
 $secondary-color: #FF79DA;
 $tertiary-color: #99E2D0;
-$font-weight:(
-    "regular": 400,
-    "medium": 500,
-    "bold": 700
-);
+
 $mobile: 800px;
 
 * {
     box-sizing: border-box;
+    font-family: 'Roboto', 'Shrikhand';
     margin: 0;
     padding: 0;
+    text-decoration: none;
   }
 
-@mixin flexCenter($direction){
+ body {
+   margin:0px;
+   height:100vh;
+ } 
+
+@mixin flexCenter {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: $direction;
 }
 
 @mixin mobile {
   @media (max-width: $mobile){
+      @content;
   }
+}
+.top-header {
+  @include flexCenter;
+  flex-direction: column;
+  display:flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 20px;
 }
 
 .header {
-    display: flex;
-    height: 70px;
-    justify-content: center;
-    margin: 40px;
+  @include flexCenter;
+  @include mobile;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.explore-buttom {
+@include flexCenter;
+flex-direction: column;
+background-image: linear-gradient(to bottom, $secondary-color, $primary-color);
+border-radius: 25px;
+padding: 20px;
+height: 50px;
+width: auto;
+margin-left: auto;
+ }
+
+ .explore-buttom:hover{
+   background-image: linear-gradient(to bottom, $primary-color, $secondary-color);
+ }
+
+ .explore-text {
+   font-size: 18px;
+   color: white;
+   font-weight: 900;
+ }
+
+ .buttoms{
+  @include flexCenter;
+  flex-direction: row;
+    height: auto;
+    padding: 20px;
+    
+}
+
+.buttom-name {
+  @include flexCenter;
+  font-weight: bold;
+}
+
+.buttom1,
+.buttom2,
+.buttom3 {
+  @include flexCenter;
+  background-color: white;
+  border-radius: 20px;
+  border: solid #F2F2F2 2px;
+  box-shadow: 0px 1px 1px 0px rgba(192,192,192);
+  display: inline-flex;
+  font-size: 15px;
+  padding: 4px 10px;
+
   }
 
-@include mobile{
-  flex-direction: column;
+.buttom1:hover,
+.buttom2:hover,
+.buttom3:hover{
+  box-shadow: 1px 4px 2px 1px rgba(192,192,192);
+  background-color:rgb(241, 245, 245);
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  float: left;
-  width: auto;
+  @include flexCenter;
 }
 
 .logo img{
-  height: 60px;
-  margin: 0px 40px;
+  height: 50%;
+  width: 50%;
+  margin:10px auto;
 }
 
 .fa-map-marker-alt {
-  background-color: grey;
-  border-radius: 12px 0 0 12px;
-  font-size: 22px;
-  padding: 1px;
+  @include flexCenter;
+  background-image: linear-gradient(to bottom, rgba(189, 186, 186, 0.863),rgba(236, 231, 231, 0.832));
+  font-size: 18px;
+  padding: 10px;
   text-align: center;
   width: auto;
-  padding: 10px;
 }
 
 .search {
-  display: flex;
+  @include flexCenter;
   flex-direction: row;
   width: 100%;
-  text-align: center;
 }
 
 .search-box {
-  border: solid grey;
+  background-image: linear-gradient(to bottom, rgba(189, 186, 186, 0.863),rgba(236, 231, 231, 0.832));
+  border: none;
   font-weight: 700;
   font-size: 12px;
-  width: 200px;
+  width: 100%;
   padding: 12px;
+  outline: none;
+  text-align: center;
 }
 
-.restaurant-card{
+.new-restaurant{
+  @include flexCenter;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgb(15, 61, 15);
+  background-color: $tertiary-color;
+  border-radius: 5px;
+  float: right;
+  height: 30px;
+  min-width: 80px;
+  position:relative;
+  right: 8px;
+  bottom: 140px;
+}
+
+.buttom-text {
+  color: black;
+}
+
+.button-card:hover {
+  box-shadow: 0 2px 1px 0 rgba(192,192,192);
+}
+
+.buttom-number {
+  font-size: 20px;
+  align-items: center;
+  background-color: $primary-color;
+  border-radius: 25px;
+  color: white;
+  display: flex;
+  float: left;
+  height: 30px;
+  justify-content: center;
+  margin: 0 15px 0 -26.5px;
+  min-width: 30px;
+  position: relative;
+}
+
+.buttom-icon {
+  @include flexCenter;
+  font-size: 20px;
+  border-radius: 25px;
+  color: grey;
+  float: left;
+  height: 50px;
+  margin: 0 15px 0 -26.5px;
+  min-width: 55px;
+  position: relative;
+}
+
+.buttom-icon1 {
+  color:$primary-color;
+  @include flexCenter;
+  font-size: 20px;
+  border-radius: 25px;
+  color:$primary-color;
+  float: left;
+  height: 50px;
+  margin: 0 15px 0 -26.5px;
+  min-width: 55px;
+  position: relative;
+}
+
+
+.buttoms {
+  @include flexCenter;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 40px;
+  
+}
+
+.buttoms-name {
+  font-weight: 900;
+}
+
+.restaurants p{
+  font-weight: 400;
+}
+.restaurant-card {
   background-color: white;
   border-radius: 20px;
-  border: solid #F2F2F2 10px;
   box-shadow: 1px 1px 1px 1px rgba(192,192,192);
   width: 300px;
 }
 
 .restaurant-card:hover {
-  box-shadow: 0 4px 2px 0 rgba(192,192,192);
+  box-shadow: 0 6px 4px 0 rgba(192,192,192);
+  background-color: rgb(241, 245, 245);
 }
 
 .restaurant-card img {
   border-radius: 20px 20px 0 0;
-  height: 20px;
-  width: 20%;
+  height: 150px;
+  width: 100%;
   object-fit: cover;
   position: relative;
 }
 
 .restaurant-card-text {
-  border-radius: 0 0 1px 2px;
-  line-height: 6px;
-  padding: 2px;
+  font-size: 14px;
+  height: 70px;
+  width: 300px;
+  color: black;
+  padding: 10px 20px;
 }
 
-.restaurant-container {
+
+.restaurants-header {
+  padding: 20px;
+}
+
+.restaurant-branch {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  gap: 20px;
+  justify-content: center;
+}
+
+.heart {
+  font-size: 20px;
+  color: black;
+  float: right;
+  font-weight: lighter;
+  overflow:hidden;  
+
+}
+
+.heart:hover{
+  color:$secondary-color;
+}
+
+.restaurants-container {
+  @include flexCenter;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-evenly;
@@ -117,16 +287,47 @@ $mobile: 800px;
   margin-left: 10px;
 }
 
-.restaurant-background {
+.restaurants-background {
   background-color: #F2F2F2;
-  border-radius: 25px;
   padding: 10px;
-  width: 55%;
+  width: 100%;
 }   
 
-.places {
+.footer {
+  background-color: black;
+  padding: 0 20px;
+  margin: 20px auto;
+}
+
+.logo1 img{
+    height: 40px;
+    filter: invert(100%);
+}
+
+.footer {
+  background-color:rgba(0, 0, 0, 0.863);
+  padding: 20px 10px;
+  margin-top: 32px;
+  height: 300px;
+}
+
+.column {
   display: flex;
-  flex-wrap: wrap-reverse;
-  gap: 20px;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: left;
+  
+}
+
+.footer a {
+  color: white;
+  padding: 10px;
+}
+
+.footer p {
+  padding: 10px 0;
+  
+}
+
+.footer a:hover {
+  color: $tertiary-color;
 }
