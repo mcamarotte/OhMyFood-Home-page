@@ -13,6 +13,10 @@ body {
   height: 100vh;
 }
 
+p {
+  font-weight: 400;
+}
+
 .top-header {
   display: flex;
   justify-content: center;
@@ -23,7 +27,6 @@ body {
   padding: 20px;
   gap: 20px;
 }
-
 .header {
   display: flex;
   justify-content: center;
@@ -31,6 +34,7 @@ body {
   flex-direction: column;
   padding: 10px;
 }
+
 .explore-buttom {
   display: flex;
   justify-content: center;
@@ -54,19 +58,11 @@ body {
   font-weight: 900;
 }
 
-.buttoms {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  height: auto;
-  padding: 20px;
-}
-
 .buttom-name {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   font-weight: bold;
 }
 
@@ -76,6 +72,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   background-color: white;
   border-radius: 20px;
   border: solid #F2F2F2 2px;
@@ -96,6 +93,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 }
 
 .logo img {
@@ -104,15 +102,32 @@ body {
   margin: 10px auto;
 }
 
-.fa-map-marker-alt {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: linear-gradient(to bottom, rgba(189, 186, 186, 0.863), rgba(236, 231, 231, 0.832));
-  font-size: 18px;
+.search {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.search i {
   padding: 10px;
+  min-width: 20%;
+  font-size: 18px;
+  position: absolute;
+}
+@media (max-width: 800px) {
+  .search i {
+    min-width: 45%;
+  }
+}
+
+.search-box {
+  background-image: linear-gradient(to bottom, rgba(189, 186, 186, 0.863), rgba(236, 231, 231, 0.832));
+  border: none;
+  font-weight: 700;
+  font-size: 12px;
+  width: 100%;
+  padding: 12px;
   text-align: center;
-  width: auto;
+  outline: none;
 }
 
 .search {
@@ -123,21 +138,11 @@ body {
   width: 100%;
 }
 
-.search-box {
-  background-image: linear-gradient(to bottom, rgba(189, 186, 186, 0.863), rgba(236, 231, 231, 0.832));
-  border: none;
-  font-weight: 700;
-  font-size: 12px;
-  width: 100%;
-  padding: 12px;
-  outline: none;
-  text-align: center;
-}
-
 .new-restaurant {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   font-size: 16px;
   font-weight: 700;
   color: #0f3d0f;
@@ -160,15 +165,16 @@ body {
 }
 
 .buttom-number {
-  font-size: 20px;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  flex-direction: row;
+  font-size: 20px;
   background-color: #9356DC;
   border-radius: 25px;
   color: white;
-  display: flex;
   float: left;
   height: 30px;
-  justify-content: center;
   margin: 0 15px 0 -26.5px;
   min-width: 30px;
   position: relative;
@@ -178,6 +184,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   font-size: 20px;
   border-radius: 25px;
   color: grey;
@@ -193,6 +200,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   font-size: 20px;
   border-radius: 25px;
   color: #9356DC;
@@ -207,9 +215,24 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   flex-wrap: wrap;
   padding: 20px;
   gap: 40px;
+  height: auto;
+}
+@media (max-width: 800px) {
+  .buttoms {
+    width: 90%;
+  }
+}
+@media (max-width: 880px) {
+  .buttoms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 .buttoms-name {
@@ -285,9 +308,6 @@ body {
 .restaurant-header {
   display: flex;
   justify-content: flex-start;
-}
-
-.restaurant-header {
   margin-left: 10px;
 }
 
@@ -306,6 +326,12 @@ body {
 .logo1 img {
   height: 40px;
   filter: invert(100%);
+}
+@media (max-width: 800px) {
+  .logo1 img {
+    height: 20px;
+    margin: 0 10px;
+  }
 }
 
 .footer {
@@ -332,4 +358,4 @@ body {
 
 .footer a:hover {
   color: #99E2D0;
-}
+}/*# sourceMappingURL=main.css.map */
