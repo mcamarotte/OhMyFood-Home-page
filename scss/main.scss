@@ -6,6 +6,7 @@ $secondary-color: #FF79DA;
 $tertiary-color: #99E2D0;
 
 $mobile: 800px;
+$tablet: 880px;
 
 * {
     box-sizing: border-box;
@@ -20,10 +21,11 @@ $mobile: 800px;
    height:100vh;
  } 
 
-@mixin flexCenter {
+@mixin flexCenter($direction) {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: $direction;
 }
 
 @mixin mobile {
@@ -31,9 +33,20 @@ $mobile: 800px;
       @content;
   }
 }
+
+@mixin tablet {
+  @media(max-width: $tablet){
+    @content;
+  }
+}
+
+p{
+  font-weight: 400;
+}
+
 .top-header {
-  @include flexCenter;
-  flex-direction: column;
+  @include flexCenter (column);
+  @include mobile;
   display:flex;
   flex-wrap: wrap;
   padding: 20px;
@@ -41,15 +54,12 @@ $mobile: 800px;
 }
 
 .header {
-  @include flexCenter;
-  @include mobile;
-    flex-direction: column;
-    padding: 10px;
+  @include flexCenter (column);
+      padding: 10px;
 }
 
 .explore-buttom {
-@include flexCenter;
-flex-direction: column;
+@include flexCenter (column);
 background-image: linear-gradient(to bottom, $secondary-color, $primary-color);
 border-radius: 25px;
 padding: 20px;
@@ -68,23 +78,15 @@ margin-left: auto;
    font-weight: 900;
  }
 
- .buttoms{
-  @include flexCenter;
-  flex-direction: row;
-    height: auto;
-    padding: 20px;
-    
-}
-
 .buttom-name {
-  @include flexCenter;
+  @include flexCenter(row);
   font-weight: bold;
 }
 
 .buttom1,
 .buttom2,
 .buttom3 {
-  @include flexCenter;
+  @include flexCenter(row);
   background-color: white;
   border-radius: 20px;
   border: solid #F2F2F2 2px;
@@ -92,7 +94,6 @@ margin-left: auto;
   display: inline-flex;
   font-size: 15px;
   padding: 4px 10px;
-
   }
 
 .buttom1:hover,
@@ -103,7 +104,7 @@ margin-left: auto;
 }
 
 .logo {
-  @include flexCenter;
+  @include flexCenter(row);
 }
 
 .logo img{
@@ -112,34 +113,41 @@ margin-left: auto;
   margin:10px auto;
 }
 
-.fa-map-marker-alt {
-  @include flexCenter;
-  background-image: linear-gradient(to bottom, rgba(189, 186, 186, 0.863),rgba(236, 231, 231, 0.832));
-  font-size: 18px;
-  padding: 10px;
-  text-align: center;
-  width: auto;
-}
+.search { 
+  width: 100%; 
+  margin-bottom: 10px; 
+} 
 
-.search {
-  @include flexCenter;
-  flex-direction: row;
-  width: 100%;
-}
+.search i{ 
+  @include mobile{
+    min-width: 45%;
+  }
+  padding: 10px; 
+  min-width: 20%;
+  font-size:18px;
+  position: absolute;
 
-.search-box {
+} 
+
+.search-box { 
   background-image: linear-gradient(to bottom, rgba(189, 186, 186, 0.863),rgba(236, 231, 231, 0.832));
   border: none;
   font-weight: 700;
   font-size: 12px;
-  width: 100%;
-  padding: 12px;
+  width: 100%; 
+  padding: 12px; 
+  text-align: center; 
   outline: none;
-  text-align: center;
+
+} 
+.search {
+  @include flexCenter(row);
+  width: 100%;
 }
 
+
 .new-restaurant{
-  @include flexCenter;
+  @include flexCenter(row);
   font-size: 16px;
   font-weight: 700;
   color: rgb(15, 61, 15);
@@ -162,22 +170,20 @@ margin-left: auto;
 }
 
 .buttom-number {
+  @include flexCenter(row);
   font-size: 20px;
-  align-items: center;
   background-color: $primary-color;
   border-radius: 25px;
   color: white;
-  display: flex;
   float: left;
   height: 30px;
-  justify-content: center;
   margin: 0 15px 0 -26.5px;
   min-width: 30px;
   position: relative;
 }
 
 .buttom-icon {
-  @include flexCenter;
+  @include flexCenter(row);
   font-size: 20px;
   border-radius: 25px;
   color: grey;
@@ -190,7 +196,7 @@ margin-left: auto;
 
 .buttom-icon1 {
   color:$primary-color;
-  @include flexCenter;
+  @include flexCenter(row);
   font-size: 20px;
   border-radius: 25px;
   color:$primary-color;
@@ -203,11 +209,16 @@ margin-left: auto;
 
 
 .buttoms {
-  @include flexCenter;
+  @include flexCenter(row);
+  @include mobile{
+  width: 90%;}
+  @include tablet{
+    @include flexCenter(column);
+  }
   flex-wrap: wrap;
   padding: 20px;
   gap: 40px;
-  
+  height: auto;
 }
 
 .buttoms-name {
@@ -263,7 +274,6 @@ margin-left: auto;
   float: right;
   font-weight: lighter;
   overflow:hidden;  
-
 }
 
 .heart:hover{
@@ -271,8 +281,7 @@ margin-left: auto;
 }
 
 .restaurants-container {
-  @include flexCenter;
-  flex-direction: column;
+  @include flexCenter(column);
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-evenly;
@@ -281,11 +290,9 @@ margin-left: auto;
 .restaurant-header {
   display: flex;
   justify-content: flex-start;
-}
-
-.restaurant-header {
   margin-left: 10px;
 }
+
 
 .restaurants-background {
   background-color: #F2F2F2;
@@ -300,6 +307,10 @@ margin-left: auto;
 }
 
 .logo1 img{
+  @include mobile{
+height:20px;
+margin:0 10px;
+  }
     height: 40px;
     filter: invert(100%);
 }
