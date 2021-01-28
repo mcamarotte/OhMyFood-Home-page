@@ -1,309 +1,284 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+
+$primary-color: #9356DC;
+$secondary-color: #FF79DA;
+$tertiary-color: #99E2D0;
+
+$mobile: 800px;
+$tablet: 880px;
+
 * {
-  box-sizing: border-box;
-  font-family: "Roboto", "Shrikhand";
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Roboto', 'Shrikhand';
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  }
+
+ body {
+   margin:0px;
+   height:100vh;
+ } 
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
 }
 
-body {
-  margin: 0px;
-  height: 100vh;
+@mixin mobile {
+  @media (max-width: $mobile){
+      @content;
+  }
 }
 
-p {
+@mixin tablet {
+  @media(max-width: $tablet){
+    @content;
+  }
+}
+
+p{
   font-weight: 400;
 }
 
 .top-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  display: flex;
+  @include flexCenter (column);
+  @include mobile;
+  display:flex;
   flex-wrap: wrap;
   padding: 20px;
   gap: 20px;
 }
+
 .header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 10px;
+  @include flexCenter (column);
+      padding: 10px;
 }
 
 .explore-buttom {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-image: linear-gradient(to bottom, #FF79DA, #9356DC);
-  border-radius: 25px;
-  padding: 20px;
-  height: 50px;
-  width: auto;
-  margin-left: auto;
-}
+@include flexCenter (column);
+background-image: linear-gradient(to bottom, $secondary-color, $primary-color);
+border-radius: 25px;
+padding: 20px;
+height: 50px;
+width: auto;
+margin-left: auto;
+ }
 
-.explore-buttom:hover {
-  background-image: linear-gradient(to bottom, #9356DC, #FF79DA);
-}
+ .explore-buttom:hover{
+   background-image: linear-gradient(to bottom, $primary-color, $secondary-color);
+ }
 
-.explore-text {
-  font-size: 18px;
-  color: white;
-  font-weight: 900;
-}
+ .explore-text {
+   font-size: 18px;
+   color: white;
+   font-weight: 900;
+ }
 
 .buttom-name {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+  @include flexCenter(row);
   font-weight: bold;
 }
 
 .buttom1,
 .buttom2,
 .buttom3 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+  @include flexCenter(row);
   background-color: white;
   border-radius: 20px;
   border: solid #F2F2F2 2px;
-  box-shadow: 0px 1px 1px 0px silver;
+  box-shadow: 0px 1px 1px 0px rgba(192,192,192);
   display: inline-flex;
   font-size: 15px;
   padding: 4px 10px;
-}
+  width: 300px;
+  }
 
 .buttom1:hover,
 .buttom2:hover,
-.buttom3:hover {
-  box-shadow: 1px 4px 2px 1px silver;
-  background-color: #f1f5f5;
+.buttom3:hover{
+  box-shadow: 1px 4px 2px 1px rgba(192,192,192);
+  background-color:rgb(241, 245, 245);
 }
 
 .logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+  @include flexCenter(row);
 }
 
-.logo img {
+.logo img{
   height: 50%;
   width: 50%;
-  margin: 10px auto;
+  margin:10px auto;
 }
 
-.search {
-  width: 100%;
-  margin-bottom: 10px;
-}
+.search { 
+  width: 100%; 
+  margin-bottom: 10px; 
+} 
 
-.search i {
-  padding: 10px;
-  min-width: 20%;
-  font-size: 18px;
-  position: absolute;
-}
-@media (max-width: 800px) {
-  .search i {
+.search i{ 
+  @include mobile{
     min-width: 45%;
   }
-}
+  padding: 10px; 
+  min-width: 20%;
+  font-size:18px;
+  position: absolute;
 
-.search-box {
-  background-image: linear-gradient(to bottom, rgba(189, 186, 186, 0.863), rgba(236, 231, 231, 0.832));
+} 
+
+.search-box { 
+  background-image: linear-gradient(to bottom, rgba(189, 186, 186, 0.863),rgba(236, 231, 231, 0.832));
   border: none;
   font-weight: 700;
   font-size: 12px;
-  width: 100%;
-  padding: 12px;
-  text-align: center;
+  width: 100%; 
+  padding: 12px; 
+  text-align: center; 
   outline: none;
-}
 
+} 
 .search {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+  @include flexCenter(row);
   width: 100%;
 }
 
-.new-restaurant {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+
+.new-restaurant{
+  @include flexCenter(row);
   font-size: 16px;
   font-weight: 700;
-  color: #0f3d0f;
-  background-color: #99E2D0;
+  color: rgb(15, 61, 15);
+  background-color: $tertiary-color;
   border-radius: 5px;
   float: right;
   height: 30px;
   min-width: 80px;
-  position: relative;
-  right: 8px;
+  position:relative;
+  left: 70px;
   bottom: 140px;
 }
 
 .buttom-text {
   color: black;
+  width: 200px;
 }
 
 .button-card:hover {
-  box-shadow: 0 2px 1px 0 silver;
+  box-shadow: 0 2px 1px 0 rgba(192,192,192);
 }
 
 .buttom-number {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+  @include flexCenter(row);
   font-size: 20px;
-  background-color: #9356DC;
+  background-color: $primary-color;
   border-radius: 25px;
   color: white;
   float: left;
   height: 30px;
-  margin: 0 15px 0 -26.5px;
+  margin: 0 30px 0 -40px;
   min-width: 30px;
   position: relative;
 }
 
 .buttom-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+  @include flexCenter(row);
   font-size: 20px;
-  border-radius: 25px;
   color: grey;
-  float: left;
   height: 50px;
-  margin: 0 15px 0 -26.5px;
+  margin: 0 0 0 -26px;
   min-width: 55px;
-  position: relative;
 }
 
 .buttom-icon1 {
-  color: #9356DC;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+  color:$primary-color;
+  @include flexCenter(row);
   font-size: 20px;
-  border-radius: 25px;
-  color: #9356DC;
-  float: left;
   height: 50px;
-  margin: 0 15px 0 -26.5px;
   min-width: 55px;
-  position: relative;
+  margin: 0 0 0 -26px;
 }
 
+
 .buttoms {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+  @include flexCenter(row);
+  @include mobile{
+  width: 90%;}
+  @include tablet{
+    @include flexCenter(column);
+  }
   flex-wrap: wrap;
   padding: 20px;
   gap: 40px;
   height: auto;
-}
-@media (max-width: 800px) {
-  .buttoms {
-    width: 90%;
-  }
-}
-@media (max-width: 880px) {
-  .buttoms {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
 }
 
 .buttoms-name {
   font-weight: 900;
 }
 
-.restaurants p {
+.restaurants p{
   font-weight: 400;
 }
-
 .restaurant-card {
   background-color: white;
   border-radius: 20px;
-  box-shadow: 1px 1px 1px 1px silver;
-  width: 300px;
+  box-shadow: 1px 1px 1px 1px rgba(192,192,192);
+  width: 350px;
 }
 
 .restaurant-card:hover {
-  box-shadow: 0 6px 4px 0 silver;
-  background-color: #f1f5f5;
+  box-shadow: 0 6px 4px 0 rgba(192,192,192);
+  background-color: rgb(241, 245, 245);
 }
 
 .restaurant-card img {
   border-radius: 20px 20px 0 0;
   height: 150px;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   position: relative;
 }
 
 .restaurant-card-text {
+  display:flex;
+  flex-direction: column;
   font-size: 14px;
   height: 70px;
-  width: 300px;
   color: black;
-  padding: 10px 20px;
+  margin: 10px;
+  
 }
+
+.heart i{
+    font-size: 20px;
+    color: black;
+    border-radius: 5px;
+    float: right;
+    height: 30px;
+    min-width: 80px;
+    position:relative;
+    top:15px;
+  }
 
 .restaurants-header {
   padding: 20px;
 }
 
-.restaurant-branch {
-  display: flex;
-  flex-wrap: wrap-reverse;
-  gap: 20px;
-  justify-content: center;
-}
-
-.heart {
-  font-size: 20px;
-  color: black;
-  float: right;
-  font-weight: lighter;
-  overflow: hidden;
-}
-
-.heart:hover {
-  color: #FF79DA;
+.heart i:hover{
+  font-weight: 700;
+  color:$secondary-color;
+  transition: 2s;
 }
 
 .restaurants-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
+  @include flexCenter(column);
   gap: 20px;
-  justify-content: space-evenly;
-}
+  justify-content: center;
+}   
 
 .restaurant-header {
   display: flex;
@@ -311,31 +286,25 @@ p {
   margin-left: 10px;
 }
 
+
 .restaurants-background {
   background-color: #F2F2F2;
   padding: 10px;
   width: 100%;
-}
+}   
 
-.footer {
-  background-color: black;
-  padding: 0 20px;
-  margin: 20px auto;
-}
 
-.logo1 img {
-  height: 40px;
-  filter: invert(100%);
-}
-@media (max-width: 800px) {
-  .logo1 img {
-    height: 20px;
-    margin: 0 10px;
+.logo1 img{
+  @include mobile{
+height:18px;
+margin:0 10px;
   }
+    height: 40px;
+    filter: invert(100%);
 }
 
 .footer {
-  background-color: rgba(0, 0, 0, 0.863);
+  background-color:rgba(0, 0, 0, 0.863);
   padding: 20px 10px;
   margin-top: 32px;
   height: 300px;
@@ -345,6 +314,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: left;
+  
 }
 
 .footer a {
@@ -354,8 +324,9 @@ p {
 
 .footer p {
   padding: 10px 0;
+  
 }
 
 .footer a:hover {
-  color: #99E2D0;
+  color: $tertiary-color;
 }
