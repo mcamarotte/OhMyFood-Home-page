@@ -1,172 +1,175 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
-
-$primary-color: #9356DC;
-$secondary-color: #FF79DA;
-$tertiary-color: #99E2D0;
-
-$mobile: 480px;
-$tablet: 880px;
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 * {
-    box-sizing: border-box;
-    font-family: 'Roboto', 'Shrikhand';
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-  }
-
- body {
-   margin:0px;
-   height:100vh;
- } 
-
-@mixin flexCenter($direction) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: $direction;
+  box-sizing: border-box;
+  font-family: "Roboto", "Shrikhand";
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
 
-@mixin mobile {
-  @media (max-width: $mobile){
-      @content;
-  }
+body {
+  margin: 0px;
+  height: 100vh;
 }
 
-@mixin tablet {
-  @media(max-width: $tablet){
-    @content;
-  }
-}
-
-p{
+p {
   font-weight: 400;
 }
 
 .top-header {
-  @include flexCenter (column);
-  @include mobile;
-  display:flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
   flex-wrap: wrap;
   padding: 20px;
   gap: 20px;
 }
-
 .header {
-  @include flexCenter (column);
-      padding: 10px;
-      @include mobile{
-        padding: 0;
-      }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+@media (max-width: 480px) {
+  .header {
+    padding: 0;
+  }
 }
 
 .explore-buttom {
-@include flexCenter (column);
-background-image: linear-gradient(to bottom, $secondary-color, $primary-color);
-border-radius: 25px;
-padding: 20px;
-height: 50px;
-width: auto;
-margin-left: auto;
- }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(to bottom, #FF79DA, #9356DC);
+  border-radius: 25px;
+  padding: 20px;
+  height: 50px;
+  width: auto;
+  margin-left: auto;
+}
 
- .explore-buttom:hover{
-   background-image: linear-gradient(to bottom, $primary-color, $secondary-color);
- }
+.explore-buttom:hover {
+  background-image: linear-gradient(to bottom, #9356DC, #FF79DA);
+}
 
- .explore-text {
-   font-size: 18px;
-   color: white;
-   font-weight: 900;
- }
+.explore-text {
+  font-size: 18px;
+  color: white;
+  font-weight: 900;
+}
 
 .buttom-name {
-  @include flexCenter(row);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   font-weight: bold;
 }
 
 .buttom1,
 .buttom2,
 .buttom3 {
-  @include mobile{
-    width: 250px;
-  }
-  @include flexCenter(row);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   background-color: white;
   border-radius: 20px;
   border: solid #F2F2F2 2px;
-  box-shadow: 0px 1px 1px 0px rgba(192,192,192);
+  box-shadow: 0px 1px 1px 0px silver;
   display: inline-flex;
   font-size: 15px;
   padding: 4px 10px;
   width: 300px;
+}
+@media (max-width: 480px) {
+  .buttom1,
+.buttom2,
+.buttom3 {
+    width: 250px;
   }
+}
 
 .buttom1:hover,
 .buttom2:hover,
-.buttom3:hover{
-  box-shadow: 1px 4px 2px 1px rgba(192,192,192);
-  background-color:rgb(241, 245, 245);
+.buttom3:hover {
+  box-shadow: 1px 4px 2px 1px silver;
+  background-color: #f1f5f5;
 }
 
 .logo {
-  @include flexCenter(row);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
-.logo img{
+.logo img {
   height: 50%;
   width: 50%;
-  margin:10px auto;
+  margin: 10px auto;
 }
 
-.search { 
-  width: 100%; 
-  margin-bottom: 10px; 
-} 
+.search {
+  width: 100%;
+  margin-bottom: 10px;
+}
 
-.search i{ 
-  @include tablet{
+.search i {
+  padding: 10px;
+  min-width: 20%;
+  font-size: 18px;
+  position: absolute;
+}
+@media (max-width: 880px) {
+  .search i {
     min-width: 30%;
   }
-  @include mobile{
+}
+@media (max-width: 480px) {
+  .search i {
     min-width: 45%;
   }
-  padding: 10px; 
-  min-width: 20%;
-  font-size:18px;
-  position: absolute;
+}
 
-} 
-
-.search-box { 
-  background-image: linear-gradient(to bottom, rgba(189, 186, 186, 0.863),rgba(236, 231, 231, 0.832));
+.search-box {
+  background-image: linear-gradient(to bottom, rgba(189, 186, 186, 0.863), rgba(236, 231, 231, 0.832));
   border: none;
   font-weight: 700;
   font-size: 12px;
-  width: 100%; 
-  padding: 12px; 
-  text-align: center; 
+  width: 100%;
+  padding: 12px;
+  text-align: center;
   outline: none;
+}
 
-} 
 .search {
-  @include flexCenter(row);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   width: 100%;
 }
 
-
-.new-restaurant{
-  @include flexCenter(row);
+.new-restaurant {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   font-size: 16px;
   font-weight: 700;
-  color: rgb(15, 61, 15);
-  background-color: $tertiary-color;
+  color: #0f3d0f;
+  background-color: #99E2D0;
   border-radius: 5px;
   float: right;
   height: 30px;
   min-width: 80px;
-  position:relative;
+  position: relative;
   left: 70px;
   bottom: 140px;
 }
@@ -177,13 +180,16 @@ margin-left: auto;
 }
 
 .button-card:hover {
-  box-shadow: 0 2px 1px 0 rgba(192,192,192);
+  box-shadow: 0 2px 1px 0 silver;
 }
 
 .buttom-number {
-  @include flexCenter(row);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   font-size: 20px;
-  background-color: $primary-color;
+  background-color: #9356DC;
   border-radius: 25px;
   color: white;
   float: left;
@@ -194,7 +200,10 @@ margin-left: auto;
 }
 
 .buttom-icon {
-  @include flexCenter(row);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   font-size: 20px;
   color: grey;
   height: 50px;
@@ -203,98 +212,121 @@ margin-left: auto;
 }
 
 .buttom-icon1 {
-  color:$primary-color;
-  @include flexCenter(row);
+  color: #9356DC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   font-size: 20px;
   height: 50px;
   min-width: 55px;
   margin: 0 0 0 -26px;
 }
 
-
 .buttoms {
-  @include flexCenter(row);
-  @include mobile{
-    @include flexCenter(column);
-}
-  @include tablet{
-    @include flexCenter(column);
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   flex-wrap: wrap;
   padding: 20px;
   gap: 40px;
   height: auto;
+}
+@media (max-width: 480px) {
+  .buttoms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+@media (max-width: 880px) {
+  .buttoms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 .buttoms-name {
   font-weight: 900;
 }
 
-.restaurants p{
+.restaurants p {
   font-weight: 400;
 }
-.restaurant-card { 
+
+.restaurant-card {
   background-color: white;
   border-radius: 20px;
-  box-shadow: 1px 1px 1px 1px rgba(192,192,192);
+  box-shadow: 1px 1px 1px 1px silver;
   width: 300px;
 }
 
 .restaurant-card:hover {
-  box-shadow: 0 6px 4px 0 rgba(192,192,192);
-  background-color: rgb(241, 245, 245);
+  box-shadow: 0 6px 4px 0 silver;
+  background-color: #f1f5f5;
 }
 
 .restaurant-card img {
   border-radius: 20px 20px 0 0;
   height: 150px;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   position: relative;
 }
 
 .restaurant-card-text {
-  display:flex;
+  display: flex;
   flex-direction: column;
   font-size: 14px;
   height: 70px;
   color: black;
   margin: 10px;
-  
 }
 
-.heart i{
-    font-size: 20px;
-    color: black;
-    border-radius: 5px;
-    float: right;
-    height: 30px;
-    min-width: 80px;
-    position:relative;
-    top:15px;
-  }
+.heart i {
+  font-size: 20px;
+  color: black;
+  border-radius: 5px;
+  float: right;
+  height: 30px;
+  min-width: 80px;
+  position: relative;
+  top: 15px;
+}
 
 .restaurants-header {
   padding: 20px;
 }
 
-.heart i:hover{
+.heart i:hover {
   font-weight: 700;
-  color:$secondary-color;
+  color: #FF79DA;
   transition: 2s;
 }
 
 .restaurants-container {
-  @include tablet{
-    flex-direction: column;
-  }
-  @include mobile{
-    flex-direction: column;
-  }
-  @include flexCenter(row);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   gap: 20px;
   justify-content: center;
-}   
+}
+@media (max-width: 880px) {
+  .restaurants-container {
+    flex-direction: column;
+  }
+}
+@media (max-width: 480px) {
+  .restaurants-container {
+    flex-direction: column;
+  }
+}
 
 .restaurant-header {
   display: flex;
@@ -302,25 +334,25 @@ margin-left: auto;
   margin-left: 10px;
 }
 
-
 .restaurants-background {
   background-color: #F2F2F2;
   padding: 10px;
   width: 100%;
-}   
+}
 
-
-.logo1 img{
-  @include mobile{
-height:18px;
-margin:0 10px;
+.logo1 img {
+  height: 40px;
+  filter: invert(100%);
+}
+@media (max-width: 480px) {
+  .logo1 img {
+    height: 18px;
+    margin: 0 10px;
   }
-    height: 40px;
-    filter: invert(100%);
 }
 
 .footer {
-  background-color:rgba(0, 0, 0, 0.863);
+  background-color: rgba(0, 0, 0, 0.863);
   padding: 20px 10px;
   margin-top: 32px;
   height: 300px;
@@ -330,7 +362,6 @@ margin:0 10px;
   display: flex;
   flex-direction: column;
   justify-content: left;
-  
 }
 
 .footer a {
@@ -340,9 +371,8 @@ margin:0 10px;
 
 .footer p {
   padding: 10px 0;
-  
 }
 
 .footer a:hover {
-  color: $tertiary-color;
+  color: #99E2D0;
 }
