@@ -1,1 +1,231 @@
 
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", "Shrikhand";
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  margin: 0px;
+  height: 100vh;
+}
+
+p {
+  font-weight: 400;
+}
+
+h3 {
+  font-weight: lighter;
+}
+
+.main-title {
+  margin: 0 10px;
+  position: left;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+}
+@media (max-width: 880px) {
+  .header {
+    justify-content: flex-start;
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.logo img {
+  height: 80%;
+  width: 50%;
+  margin: 10px auto;
+}
+
+.fa-arrow-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: black;
+  padding: 10px;
+  min-width: 20%;
+  font-size: 24px;
+  position: relative;
+}
+@media (max-width: 800px) {
+  .fa-arrow-left {
+    min-width: 45%;
+  }
+}
+
+.plates-card p {
+  font-weight: 400;
+}
+
+.plates-card {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 1px 0 silver;
+}
+
+.plates-card:hover {
+  box-shadow: 0 6px 4px 0 silver;
+  background-color: #f1f5f5;
+}
+
+.image-background img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 50%;
+}
+
+.plates-card-text {
+  font-size: 14px;
+  height: 70px;
+  width: 400px;
+  color: black;
+  padding: 10px 20px;
+}
+@media (max-width: 880px) {
+  .plates-card-text {
+    width: 300px;
+  }
+}
+
+.heart i {
+  font-size: 20px;
+  color: black;
+  border-radius: 5px;
+  float: right;
+  height: 30px;
+  min-width: 80px;
+  position: relative;
+  top: 15px;
+}
+
+.heart i:hover {
+  font-weight: 700;
+  color: #FF79DA;
+  transition: 2s;
+}
+
+.plates-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+  gap: 20px;
+}
+
+.plates-header {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+@media (max-width: 880px) {
+  .plates-header {
+    justify-content: space-between;
+  }
+}
+
+.entrees-title {
+  font-family: Shrikhand;
+  font-weight: 400;
+}
+
+.plates-background {
+  background-color: #F2F2F2;
+  padding: 10px;
+  border-radius: 120px 120px 0 0;
+  position: absolute;
+  top: 900px;
+  width: 100%;
+}
+@media (max-width: 880px) {
+  .plates-background {
+    top: 300px;
+    border-radius: 50px 50px 0 0;
+  }
+}
+
+.order-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(to bottom, #FF79DA, #9356DC);
+  border-radius: 25px;
+  padding: 10px 20px;
+  height: 50px;
+  width: 300px;
+  margin: 30px 43%;
+  position: absolute;
+  top: 1935px;
+}
+@media (max-width: 880px) {
+  .order-button {
+    top: 1350px;
+    margin: 10px 50px;
+  }
+}
+
+.logo1 img {
+  height: 40px;
+  filter: invert(100%);
+}
+@media (max-width: 800px) {
+  .logo1 img {
+    height: 18px;
+    margin: 0 10px;
+  }
+}
+
+.footer {
+  background-color: rgba(0, 0, 0, 0.863);
+  padding: 20px 10px;
+  margin-top: 32px;
+  height: 300px;
+  position: absolute;
+  top: 2000px;
+  width: 100%;
+}
+@media (max-width: 880px) {
+  .footer {
+    top: 1400px;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.footer a {
+  color: white;
+  padding: 10px;
+}
+
+.footer p {
+  padding: 10px 0;
+}
+
+.footer a:hover {
+  color: #99E2D0;
