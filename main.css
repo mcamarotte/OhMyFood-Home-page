@@ -264,6 +264,11 @@ p {
   box-shadow: 1px 1px 1px 1px silver;
   width: 300px;
 }
+@media (max-width: 1500px) {
+  .restaurant-card {
+    width: 280px;
+  }
+}
 
 .restaurant-card:hover {
   box-shadow: 0 6px 4px 0 silver;
@@ -299,10 +304,6 @@ p {
   top: 15px;
 }
 
-.restaurants-header {
-  padding: 20px;
-}
-
 .heart i:hover {
   font-weight: 700;
   color: #FF79DA;
@@ -332,6 +333,17 @@ p {
   display: flex;
   justify-content: flex-start;
   margin-left: 10px;
+  padding: 20px;
+}
+@media (max-width: 880px) {
+  .restaurant-header {
+    margin-left: 30px;
+  }
+}
+@media (max-width: 1500px) {
+  .restaurant-header {
+    margin-left: 80px;
+  }
 }
 
 .restaurants-background {
