@@ -58,7 +58,8 @@ h3 {
 }
 @media (max-width: 480px) {
   .logo img {
-    margin: 0px;
+    margin: 20px 50px;
+    height: 30px;
   }
 }
 @media (max-width: 880px) {
@@ -73,6 +74,12 @@ h3 {
   align-items: center;
   flex-direction: row;
 }
+@media (max-width: 480px) {
+  .back-menu {
+    margin-right: 100px;
+  }
+}
+
 .fa-arrow-left {
   color: black;
   padding: 10px;
@@ -82,6 +89,11 @@ h3 {
 @media (max-width: 880px) {
   .fa-arrow-left {
     margin-left: 80px;
+  }
+}
+@media (max-width: 480px) {
+  .fa-arrow-left {
+    margin-left: 10px;
   }
 }
 
@@ -126,7 +138,7 @@ h3 {
 }
 
 .heart i {
-  font-size: 20px;
+  font-size: 24px;
   color: black;
   border-radius: 5px;
   float: right;
@@ -157,6 +169,9 @@ h3 {
 }
 
 .fa-check-circle {
+  display: flex;
+  height: 55px;
+  width: 30px;
   font-size: 30px;
   color: white;
   float: right;
@@ -184,6 +199,17 @@ h3 {
   font-family: Shrikhand;
   font-weight: 400;
 }
+@media (max-width: 880px) {
+  .plates-header {
+    justify-content: space-evenly;
+  }
+}
+@media (max-width: 480px) {
+  .plates-header {
+    justify-content: space-between;
+  }
+}
+
 .plates-background {
   position: absolute;
   background-color: #F2F2F2;
@@ -197,7 +223,13 @@ h3 {
     padding: 0;
     top: 380px;
     border-radius: 50px 50px 0 0;
-    height: 1070px;
+    height: 1185px;
+  }
+}
+@media (max-width: 480px) {
+  .plates-background {
+    padding: 10px;
+    width: 400px;
   }
 }
 
@@ -213,16 +245,16 @@ h3 {
   width: 220px;
   margin: 30px 40%;
   position: absolute;
-  top: 1800px;
+  top: 1920px;
 }
 @media (max-width: 480px) {
   .order-button {
-    width: 130px;
+    width: 170px;
   }
 }
 @media (max-width: 880px) {
   .order-button {
-    top: 1460px;
+    top: 1580px;
     margin: 10px 35%;
   }
 }
@@ -244,17 +276,18 @@ h3 {
   margin-top: 32px;
   height: 300px;
   position: absolute;
-  top: 1900px;
+  top: 2000px;
   width: 100%;
 }
 @media (max-width: 480px) {
   .footer {
     top: 1200px;
+    width: 400px;
   }
 }
 @media (max-width: 880px) {
   .footer {
-    top: 1500px;
+    top: 1630px;
   }
 }
 
@@ -275,3 +308,4 @@ h3 {
 
 .footer a:hover {
   color: #99E2D0;
+}
