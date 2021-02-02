@@ -1,1 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 
+$primary-color: #9356DC;
+$secondary-color: #FF79DA;
+$tertiary-color: #99E2D0;
+
+$mobile: 480px;
+$tablet: 880px;
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', 'Shrikhand';
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  }
+
+ body {
+   margin:0px;
+   height:100vh;
+ } 
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin mobile {
+  @media (max-width: $mobile){
+      @content;
+  }
+}
+
+@mixin tablet {
+  @media(max-width: $tablet){
+    @content;
+  }
+}
+
+p{
+  font-weight: 400;
+}
+
+h3{
+  font-weight: lighter;
+}
+
+.main-title{
+  @include tablet{
+    margin-right: 200px;
+  }
+  margin-right: 300px;
+  position: left;
+  border-bottom: solid 3px $tertiary-color;
+}
+
+.header {
+  @include flexCenter (row);
+  @include mobile{
+    width: 400px;
+  }
+  @include tablet{
+    justify-content: flex-start;
+  }
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.logo img{
+  @include mobile{
+    margin: 20px 50px;
+    height: 30px;
+  }
+  @include tablet{
+    margin: 15px 80px;
+  }
+  height: 80%;
+  width: 50%;
+  margin:10px auto;
+}
+
+.back-menu {
+  @include flexCenter(row);
+  @include mobile{
+    margin-right: 100px;
+  }
+}
+
+.fa-arrow-left { 
+  @include tablet{
+    margin-left: 80px;
+  }
+  @include mobile {
+    margin-left: 10px;
+  }
+  color: black;
+  padding: 10px; 
+  min-width: 20%;
+  font-size:24px;
+} 
+
+.image-background img {
+  @include tablet {
+    height: 380px;
+  }
+  width: 100%;
+  object-fit:cover;
+  height: 800px;
+}
+
+
+.plates-card p{
+  font-weight: 400;
+}
+
+.plates-card {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 1px 0 rgba(192,192,192);
+}
+
+.plates-card:hover{
+  box-shadow: 0 6px 4px 0 rgba(192,192,192);
+  background-color: rgb(241, 245, 245);
+}
+
+.plates-card-text {
+  @include tablet{
+    width: 350px;
+  }
+  font-size: 14px;
+  height: 70px;
+  width: 400px;
+  color: black;
+  padding: 10px 20px;
+}
+
+.plates-card-text p {
+  display: flex;
+  justify-content: space-between;
+  height: 55px;
+}
+.plates-card-text p:hover{
+  margin-right: 70px;
+}
+
+.heart i{
+  font-size: 24px;
+  color: black;
+  border-radius: 5px;
+  float: right;
+  height: 30px;
+  min-width: 80px;
+  position:relative;
+  top:15px;
+}
+
+.heart i:hover{
+  font-weight: 700;
+  color:$secondary-color;
+  transition: 2s;
+}
+
+.slide_left:hover {
+  box-shadow: inset 328px 0 0 0  rgb(241, 245, 245), inset -72px 0 0 0  $tertiary-color; 
+  border-radius: 0 15px 15px 0;
+}
+
+.button_slide {
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+}
+
+.fa-check-circle{
+  display:flex;
+  height:55px;
+  width:30px;
+  font-size: 30px;
+  color: white;
+  float: right;
+}
+
+.plates-container {
+  @include flexCenter(column);
+  @include mobile{
+    margin:0;
+  }
+  flex-wrap: wrap;
+  position: relative;
+  gap: 20px;  
+}   
+
+.plates-header {
+  @include tablet{
+    justify-content: space-evenly;
+  }
+  @include mobile{
+    justify-content: space-between;
+  }
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  font-family: Shrikhand;
+  font-weight: 400;
+
+}
+
+.plates-background {
+  @include tablet{
+    padding:0;
+    top:380px;
+    border-radius: 50px 50px 0 0;
+    height: 1350px;
+  }
+  @include mobile {
+  padding:10px;
+  width: 400px;  }
+  position: absolute;
+  background-color: #F2F2F2;
+  padding: 10px;
+  border-radius: 120px 120px 0 0;
+  top: 750px;
+  width:100%;
+}
+
+
+.order-button {
+  @include flexCenter (row);
+  @include mobile{
+    width: 170px;
+  }
+  @include tablet{
+    top:1740px;
+    margin: 10px 35%;
+  }
+  background-image: linear-gradient(to bottom, $secondary-color, $primary-color);
+  border-radius: 25px;
+  padding: 10px 20px;
+  height: 50px;
+  width: 220px;
+  margin: 30px 40%;
+  position: absolute;
+  top: 2020px;
+   }
+
+.logo1 img{
+  @include mobile{
+  height:18px;
+  margin:0 10px;
+  }
+    height: 40px;
+    filter: invert(100%);
+}
+
+.footer {
+  @include mobile{
+    top: 1200px;
+    width: 400px;
+  }
+  @include tablet{
+    top:1800px;
+  }
+  background-color:rgba(0, 0, 0, 0.863);
+  padding: 20px 10px;
+  margin-top: 32px;
+  height: 300px;
+  position: absolute;
+  top: 2100px;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  
+}
+
+.footer a {
+  color: white;
+  padding: 10px;
+}
+
+.footer p {
+  padding: 10px 0;
+  
+}
+
+.footer a:hover {
+  color: $tertiary-color;
+}
