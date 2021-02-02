@@ -5,8 +5,9 @@ $primary-color: #9356DC;
 $secondary-color: #FF79DA;
 $tertiary-color: #99E2D0;
 
-$mobile: 800px;
+$mobile: 480px;
 $tablet: 880px;
+$laptop: 1500px;
 
 * {
     box-sizing: border-box;
@@ -29,18 +30,22 @@ $tablet: 880px;
 }
 
 @mixin mobile {
-  @media (max-width: $mobile){
+  @media (max-width: $mobile) {
       @content;
   }
 }
-
 @mixin tablet {
-  @media(max-width: $tablet){
+  @media(max-width: $tablet) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media(max-width: $laptop) {
     @content;
   }
 }
 
-p{
+p {
   font-weight: 400;
 }
 
@@ -55,20 +60,23 @@ p{
 
 .header {
   @include flexCenter (column);
-      padding: 10px;
+  padding: 10px;
+    @include mobile {
+    padding: 0;
+    }
 }
 
 .explore-buttom {
-@include flexCenter (column);
-background-image: linear-gradient(to bottom, $secondary-color, $primary-color);
-border-radius: 25px;
-padding: 20px;
-height: 50px;
-width: auto;
-margin-left: auto;
+ @include flexCenter (column);
+  background-image: linear-gradient(to bottom, $secondary-color, $primary-color);
+  border-radius: 25px;
+  padding: 20px;
+  height: 50px;
+  width: auto;
+  margin-left: auto;
  }
 
- .explore-buttom:hover{
+ .explore-buttom:hover {
    background-image: linear-gradient(to bottom, $primary-color, $secondary-color);
  }
 
@@ -80,12 +88,15 @@ margin-left: auto;
 
 .buttom-name {
   @include flexCenter(row);
-  font-weight: bold;
+   font-weight: bold;
 }
 
 .buttom1,
 .buttom2,
 .buttom3 {
+  @include mobile{
+    width: 250px;
+  }
   @include flexCenter(row);
   background-color: white;
   border-radius: 20px;
@@ -94,11 +105,12 @@ margin-left: auto;
   display: inline-flex;
   font-size: 15px;
   padding: 4px 10px;
-  }
+  width: 300px;
+}
 
 .buttom1:hover,
 .buttom2:hover,
-.buttom3:hover{
+.buttom3:hover {
   box-shadow: 1px 4px 2px 1px rgba(192,192,192);
   background-color:rgb(241, 245, 245);
 }
@@ -107,7 +119,7 @@ margin-left: auto;
   @include flexCenter(row);
 }
 
-.logo img{
+.logo img {
   height: 50%;
   width: 50%;
   margin:10px auto;
@@ -118,7 +130,10 @@ margin-left: auto;
   margin-bottom: 10px; 
 } 
 
-.search i{ 
+.search i { 
+  @include tablet {
+    min-width: 30%;
+  }
   @include mobile{
     min-width: 45%;
   }
@@ -138,15 +153,14 @@ margin-left: auto;
   padding: 12px; 
   text-align: center; 
   outline: none;
-
 } 
+
 .search {
   @include flexCenter(row);
   width: 100%;
 }
 
-
-.new-restaurant{
+.new-restaurant {
   @include flexCenter(row);
   font-size: 16px;
   font-weight: 700;
@@ -157,12 +171,13 @@ margin-left: auto;
   height: 30px;
   min-width: 80px;
   position:relative;
-  right: 8px;
+  left: 70px;
   bottom: 140px;
 }
 
 .buttom-text {
   color: black;
+  width: 200px;
 }
 
 .button-card:hover {
@@ -177,7 +192,7 @@ margin-left: auto;
   color: white;
   float: left;
   height: 30px;
-  margin: 0 15px 0 -26.5px;
+  margin: 0 30px 0 -40px;
   min-width: 30px;
   position: relative;
 }
@@ -185,34 +200,28 @@ margin-left: auto;
 .buttom-icon {
   @include flexCenter(row);
   font-size: 20px;
-  border-radius: 25px;
   color: grey;
-  float: left;
   height: 50px;
-  margin: 0 15px 0 -26.5px;
+  margin: 0 0 0 -26px;
   min-width: 55px;
-  position: relative;
 }
 
 .buttom-icon1 {
   color:$primary-color;
   @include flexCenter(row);
   font-size: 20px;
-  border-radius: 25px;
-  color:$primary-color;
-  float: left;
   height: 50px;
-  margin: 0 15px 0 -26.5px;
   min-width: 55px;
-  position: relative;
+  margin: 0 0 0 -26px;
 }
 
 
 .buttoms {
   @include flexCenter(row);
-  @include mobile{
-  width: 90%;}
-  @include tablet{
+   @include mobile {
+    @include flexCenter(column);
+}
+  @include tablet {
     @include flexCenter(column);
   }
   flex-wrap: wrap;
@@ -228,7 +237,10 @@ margin-left: auto;
 .restaurants p{
   font-weight: 400;
 }
-.restaurant-card {
+.restaurant-card { 
+  @include laptop {
+    width: 280px;
+  }
   background-color: white;
   border-radius: 20px;
   box-shadow: 1px 1px 1px 1px rgba(192,192,192);
@@ -249,48 +261,55 @@ margin-left: auto;
 }
 
 .restaurant-card-text {
+  display:flex;
+  flex-direction: column;
   font-size: 14px;
   height: 70px;
-  width: 300px;
   color: black;
-  padding: 10px 20px;
+  margin: 10px;
 }
 
-
-.restaurants-header {
-  padding: 20px;
-}
-
-.restaurant-branch {
-  display: flex;
-  flex-wrap: wrap-reverse;
-  gap: 20px;
-  justify-content: center;
-}
-
-.heart {
+.heart i {
   font-size: 20px;
   color: black;
+  border-radius: 5px;
   float: right;
-  font-weight: lighter;
-  overflow:hidden;  
+  height: 30px;
+  min-width: 80px;
+  position:relative;
+  top:15px;
 }
 
-.heart:hover{
+.heart i:hover {
+  font-weight: 700;
   color:$secondary-color;
+  transition: 2s;
 }
 
 .restaurants-container {
-  @include flexCenter(column);
-  flex-wrap: wrap;
+  @include tablet {
+    flex-direction: column;
+  }
+   @include mobile{
+    flex-direction: column;
+   }
+  
+  @include flexCenter(row);
   gap: 20px;
-  justify-content: space-evenly;
+  justify-content: center;
 }   
 
 .restaurant-header {
+  @include tablet {
+    margin-left: 30px;
+  }
+  @include laptop{
+    margin-left: 80px;
+  }
   display: flex;
   justify-content: flex-start;
   margin-left: 10px;
+  padding: 20px;
 }
 
 
@@ -300,19 +319,14 @@ margin-left: auto;
   width: 100%;
 }   
 
-.footer {
-  background-color: black;
-  padding: 0 20px;
-  margin: 20px auto;
-}
 
-.logo1 img{
-  @include mobile{
-height:20px;
-margin:0 10px;
-  }
-    height: 40px;
-    filter: invert(100%);
+.logo1 img {
+ @include mobile {
+ height:18px;
+ margin:0 10px;
+}
+height: 40px;
+filter: invert(100%);
 }
 
 .footer {
@@ -326,7 +340,6 @@ margin:0 10px;
   display: flex;
   flex-direction: column;
   justify-content: left;
-  
 }
 
 .footer a {
@@ -336,7 +349,6 @@ margin:0 10px;
 
 .footer p {
   padding: 10px 0;
-  
 }
 
 .footer a:hover {
