@@ -23,9 +23,9 @@ h3 {
 
 .main-title {
   margin-right: 300px;
-  position: left;
   border-bottom: solid 3px #99E2D0;
 }
+
 @media (max-width: 880px) {
   .main-title {
     margin-right: 200px;
@@ -135,6 +135,16 @@ h3 {
   .plates-card-text {
     width: 300px;
   }
+}
+
+.plates-card-text p {
+  display: flex;
+  justify-content: space-between;
+  height: 55px;
+}
+
+.plates-card-text p:hover {
+  margin-right: 70px;
 }
 
 .heart i {
