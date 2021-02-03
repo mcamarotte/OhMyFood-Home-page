@@ -23,6 +23,7 @@ h3 {
 
 .main-title {
   margin-right: 300px;
+  position: left;
   border-bottom: solid 3px #99E2D0;
 }
 @media (max-width: 880px) {
@@ -64,6 +65,7 @@ h3 {
 @media (max-width: 880px) {
   .logo img {
     margin: 15px 80px;
+    width: 150px;
   }
 }
 
