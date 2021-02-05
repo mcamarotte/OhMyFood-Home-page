@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+@import "./css/bastille.css";
+@import "./css/enchanted.css";
+@import "./css/gourmand.css";
+@import "./css/palette.css";
+
 * {
   box-sizing: border-box;
   font-family: "Roboto", "Shrikhand";
