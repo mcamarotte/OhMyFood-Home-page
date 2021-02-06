@@ -1,25 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
-
-$primary-color: #9356DC;
-$secondary-color: #FF79DA;
-$tertiary-color: #99E2D0;
-
-$mobile: 480px;
-$tablet: 880px;
-
-* {
-    box-sizing: border-box;
-    font-family: 'Roboto', 'Shrikhand';
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-  }
-
- body {
-   margin:0px;
-   height:100vh;
- } 
+@import "resets";
+@import "variables";
 
 @mixin flexCenter($direction) {
   display: flex;
@@ -59,9 +41,7 @@ h3{
 
 .header {
   @include flexCenter (row);
-  @include mobile{
-    width: 400px;
-  }
+  @include mobile;
   @include tablet{
     justify-content: flex-start;
   }
@@ -70,23 +50,17 @@ h3{
 }
 
 .logo img{
-  @include mobile{
-    margin: 20px 50px;
-    height: 30px;
-  }
+  @include mobile;
   @include tablet{
-    margin: 15px 80px;
+    margin: 10px 60px;
   }
   height: 80%;
   width: 50%;
-  margin:10px auto;
+  margin:10px;
 }
 
 .back-menu {
   @include flexCenter(row);
-  @include mobile{
-    margin-right: 100px;
-  }
 }
 
 .fa-arrow-left { 
@@ -106,20 +80,34 @@ h3{
   @include tablet {
     height: 380px;
   }
+  @include mobile;
   width: 100%;
   object-fit:cover;
   height: 800px;
-}
-
-
-.plates-card p{
-  font-weight: 400;
 }
 
 .plates-card {
   background-color: white;
   border-radius: 20px;
   box-shadow: 0 2px 1px 0 rgba(192,192,192);
+  -webkit-transition: ease-out 5s;
+  -moz-transition: ease-out 5s;
+  transition: ease-in 5s;
+}
+
+.card-link {
+  animation: 5s fadeIn;
+  animation-fill-mode: forwards;
+  visibility: hidden;
+  animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .plates-card:hover{
@@ -141,10 +129,52 @@ h3{
 .plates-card-text p {
   display: flex;
   justify-content: space-between;
-  height: 55px;
+  height: 55px;  
 }
+
 .plates-card-text p:hover{
-  margin-right: 70px;
+ margin-right: 70px; 
+}
+
+.plates-container {
+  @include flexCenter(column);
+  @include mobile{
+    margin:0;
+  }
+  position: relative;
+  gap: 20px;
+}
+
+.plates-header {
+  @include tablet{
+    justify-content: space-evenly;
+  }
+  @include mobile{
+    justify-content: space-between;
+  }
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  font-family: Shrikhand;
+  font-weight: 400;
+}
+
+.plates-background {
+  @include tablet{
+    padding:0;
+    top:380px;
+    border-radius: 50px 50px 0 0;
+    height: 1185px;
+  }
+  @include mobile {
+    padding:10px;
+  }
+  position: absolute;
+  background-color: #F2F2F2;
+  padding: 10px;
+  border-radius: 120px 120px 0 0;
+  top: 750px;
+  width:100%;
 }
 
 .heart i{
@@ -180,67 +210,21 @@ h3{
   transition: ease-out 0.4s;
 }
 
-.fa-check-circle{
+.fa-check-circle {
   display:flex;
   height:55px;
   width:30px;
   font-size: 30px;
   color: white;
-  float: right;
+  float: right;  
 }
-
-.plates-container {
-  @include flexCenter(column);
-  @include mobile{
-    margin:0;
-  }
-  flex-wrap: wrap;
-  position: relative;
-  gap: 20px;  
-}   
-
-.plates-header {
-  @include tablet{
-    justify-content: space-evenly;
-  }
-  @include mobile{
-    justify-content: space-between;
-  }
-  display: flex;
-  justify-content: space-around;
-  padding: 20px;
-  font-family: Shrikhand;
-  font-weight: 400;
-
-}
-
-.plates-background {
-  @include tablet{
-    padding:0;
-    top:380px;
-    border-radius: 50px 50px 0 0;
-    height: 1185px;
-  }
-  @include mobile {
-    padding:10px;
-    width: 400px;
-  }
-  position: absolute;
-  background-color: #F2F2F2;
-  padding: 10px;
-  border-radius: 120px 120px 0 0;
-  top: 750px;
-  width:100%;
-}
-
 
 .order-button {
-  @include flexCenter (row);
+  @include flexCenter (column);
   @include mobile{
     width: 170px;
   }
   @include tablet{
-    top:1580px;
     margin: 10px 35%;
   }
   background-image: linear-gradient(to bottom, $secondary-color, $primary-color);
@@ -249,9 +233,24 @@ h3{
   height: 50px;
   width: 220px;
   margin: 30px 40%;
-  position: absolute;
   top: 1920px;
-   }
+  }
+
+.footer {
+  @include tablet{
+    top:1600px;
+  }
+  @include mobile{
+    top: 1670px;
+  }
+  background-color:rgba(0, 0, 0, 0.863);
+  padding: 20px 10px;
+  margin-top: 32px;
+  height: 300px;
+  top: 2020px;
+  width: 100%;
+  position: absolute;
+}
 
 .logo1 img{
   @include mobile{
@@ -260,23 +259,6 @@ h3{
   }
     height: 40px;
     filter: invert(100%);
-}
-
-.footer {
-  @include mobile{
-    top: 1200px;
-    width: 400px;
-  }
-  @include tablet{
-    top:1630px;
-  }
-  background-color:rgba(0, 0, 0, 0.863);
-  padding: 20px 10px;
-  margin-top: 32px;
-  height: 300px;
-  position: absolute;
-  top: 2000px;
-  width: 100%;
 }
 
 .column {
