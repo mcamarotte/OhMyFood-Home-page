@@ -1,26 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
-
-$primary-color: #9356DC;
-$secondary-color: #FF79DA;
-$tertiary-color: #99E2D0;
-
-$mobile: 480px;
-$tablet: 880px;
-$laptop: 1500px;
-
-* {
-    box-sizing: border-box;
-    font-family: 'Roboto', 'Shrikhand';
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-  }
-
- body {
-   margin:0px;
-   height:100vh;
- } 
+@import "resets";
+@import "variables";
 
 @mixin flexCenter($direction) {
   display: flex;
@@ -269,23 +250,6 @@ p {
   margin: 10px;
 }
 
-.heart i {
-  font-size: 20px;
-  color: black;
-  border-radius: 5px;
-  float: right;
-  height: 30px;
-  min-width: 80px;
-  position:relative;
-  top:15px;
-}
-
-.heart i:hover {
-  font-weight: 700;
-  color:$secondary-color;
-  transition: 2s;
-}
-
 .restaurants-container {
   @include tablet {
     flex-direction: column;
@@ -293,8 +257,8 @@ p {
    @include mobile{
     flex-direction: column;
    }
-  
   @include flexCenter(row);
+  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
 }   
@@ -312,21 +276,27 @@ p {
   padding: 20px;
 }
 
-
 .restaurants-background {
   background-color: #F2F2F2;
   padding: 10px;
   width: 100%;
 }   
 
-
-.logo1 img {
- @include mobile {
- height:18px;
- margin:0 10px;
+.heart i {
+  font-size: 20px;
+  color: black;
+  border-radius: 5px;
+  float: right;
+  height: 30px;
+  min-width: 80px;
+  position:relative;
+  top:15px;
 }
-height: 40px;
-filter: invert(100%);
+
+.heart i:hover {
+  font-weight: 700;
+  color:$secondary-color;
+  transition: 2s;
 }
 
 .footer {
@@ -336,6 +306,15 @@ filter: invert(100%);
   height: 300px;
 }
 
+.logo1 img {
+  @include mobile {
+  height:18px;
+  margin:0 10px;
+ }
+ height: 40px;
+ filter: invert(100%);
+ }
+ 
 .column {
   display: flex;
   flex-direction: column;
